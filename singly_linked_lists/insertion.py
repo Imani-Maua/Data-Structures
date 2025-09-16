@@ -14,14 +14,30 @@ def insertAtEnd(head, x):
     current.next = newNode
     return head
 
+#this insertion has a time complexity of O(1)
+def insertAtBeginning(head, x):
+    newNode = Node(x)
+    newNode.next = head 
+    return newNode
 
+#the worst case time complexity for this insertion is O(n) where we have to traverse the entire list
+def insertMiddle(head, target, x):
+    current = head
+    while current:
+        if current.data == target:
+            newNode = Node(x)
+            newNode.next = current.next
+            current.next = newNode
+            return head
+        current = current.next
+    print(f'Value {target} has not been found')
+    return head
 
 def traverse(head):
     current = head
     while current:
         print(current.data)
         current = current.next
-
 
 def addNodes():
     numbers = []
@@ -37,20 +53,12 @@ def addNodes():
         numbers.append(num)
     return numbers
 
-
-
 def addNodesAtEnd():
     linkedlist = None
     nodes = addNodes()
     for node in nodes:
         linkedlist = insertAtEnd(linkedlist, node)
     return linkedlist
-
-#this insertion has a time complexity of O(1)
-def insertAtBeginning(head, x):
-    newNode = Node(x)
-    newNode.next = head 
-    return newNode
 
 def addNodesAtBeginning():
     linkedlist = None
@@ -71,3 +79,8 @@ traverse(insert_end)
 insert_start = addNodesAtBeginning()
 print("Linked List Start Insert:")
 traverse(insert_start)
+
+#demo for inserting a node after a certain node
+insert_after = insertMiddle(insert_end, 30, 35)
+print("Linked List Middle Insert")
+traverse(insert_after)
