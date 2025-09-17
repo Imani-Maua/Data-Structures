@@ -5,12 +5,9 @@ def intervalIntersection(first, second):
     if not first or not second:
         return [] 
     intersected = []
-    f = 0
-    s = 0
-    n = len(first)
-    m = len(second)
+    f, s = 0, 0
 
-    while f < n and s < m:
+    while f < len(first) and s < len(second):
         start = max(first[f][0], second[s][0])
         end = min(first[f][1], second[s][1])
         if start <= end:
