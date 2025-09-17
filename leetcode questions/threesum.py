@@ -1,3 +1,4 @@
+
 class Solution:
   def threeSum(self, nums: list) -> list[list[int]]:
     nums.sort()
@@ -6,7 +7,6 @@ class Solution:
     for i, num in enumerate(nums):
         if num > 0: break
         if i > 0 and num == nums[i-1]: continue
-
         right, left = len(nums)-1, i+1
         while left < right:
             total = num + nums[left] + nums[right]
