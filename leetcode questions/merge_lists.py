@@ -1,3 +1,8 @@
+class ListNode():
+    def __init__(self, val):
+        self.val = val
+        self.next = next
+
 def mergeTwoLists(ls1, ls2):
     
     p1 = ls1
